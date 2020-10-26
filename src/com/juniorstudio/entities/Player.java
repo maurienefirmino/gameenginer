@@ -3,6 +3,7 @@ package com.juniorstudio.entities;
 import java.awt.image.BufferedImage;
 
 import com.juniorstudio.main.Game;
+import com.juniorstudio.world.Camera;
 
 
 public class Player extends Entity{
@@ -22,14 +23,18 @@ public class Player extends Entity{
 		
 		if(up) {
 			y-=speed;
+			Camera.y-=speed;
 		}else if(down) {
 			y+=speed;
+			Camera.y+=speed;
 		}
 		
 		if(left) {
 			x-=speed;
+			Camera.x-=speed;
 		}else if(right) {
 			x+=speed;
+			Camera.x+=speed;
 		}
 	}
 	
@@ -42,16 +47,16 @@ public class Player extends Entity{
 		
 		
 		if(changeSprite == 1) {
-			super.sprite = Game.playerSpritesheet.getSprite(16, 0, 16, 16);
+			super.sprite = Game.playerSpritesheet.getSprite(Game.bits, 0, Game.bits, Game.bits);
 			changeSprite++;
 		}else if(changeSprite == 2) {
-			super.sprite = Game.playerSpritesheet.getSprite(32, 0, 16, 16);
+			super.sprite = Game.playerSpritesheet.getSprite(Game.bits*2, 0, Game.bits, Game.bits);
 			changeSprite++;
 		}else if(changeSprite == 3) {
-			super.sprite = Game.playerSpritesheet.getSprite(48, 0, 16, 16);
+			super.sprite = Game.playerSpritesheet.getSprite(Game.bits*3, 0, Game.bits, Game.bits);
 			changeSprite++;
 		}else if(changeSprite == 4) {
-			super.sprite = Game.playerSpritesheet.getSprite(0, 0, 16, 16);
+			super.sprite = Game.playerSpritesheet.getSprite(0, 0, Game.bits, Game.bits);
 			changeSprite = 1;
 		}
 		

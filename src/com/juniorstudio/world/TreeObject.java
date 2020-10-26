@@ -2,11 +2,10 @@ package com.juniorstudio.world;
 
 import java.awt.image.BufferedImage;
 
-public class TreeTile extends Tile{
+public class TreeObject extends Object{
 
-	public TreeTile(int x, int y, BufferedImage sprite) {
+	public TreeObject(int x, int y, BufferedImage sprite) {
 		super(x, y, sprite);
-
 	}
 
 }

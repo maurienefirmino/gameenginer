@@ -25,8 +25,9 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	private Thread thread;
 	public static JFrame frame;
 	public boolean estaRodando;
-	private final int altura = 240;
-	private final int largura = 160;
+	public static final int bits = 16;
+	private final int altura = bits*13;
+	private final int largura = bits*13;
 	private final int escala = 3;
 	private BufferedImage image;
 
@@ -47,7 +48,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		//MUNDO
 		world = new World("/map.png");
 		// Entidades
-		player = new Player(0, 0, 16, 16, playerSpritesheet.getSprite(0, 0, 16, 16));
+		player = new Player(6*bits,6*bits, bits, bits, playerSpritesheet.getSprite(0, 0, bits, bits));
 		// Adicionando entidadades
 		entities.add(player);
 
