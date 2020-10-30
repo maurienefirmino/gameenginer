@@ -12,10 +12,13 @@ public class Tile {
 	private BufferedImage sprite;
 	private int x,y;
 	
-	public Tile(int x,int y, BufferedImage sprite) {
+	public boolean colision;
+	
+	public Tile(int x,int y, BufferedImage sprite,boolean colision) {
 		this.x = x;
 		this.y = y;
 		this.sprite = sprite;
+		this.colision = colision;
 	}
 	
 	public void render(Graphics g) {

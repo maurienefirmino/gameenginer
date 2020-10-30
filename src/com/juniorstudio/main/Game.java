@@ -75,7 +75,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		frame = new JFrame("Corona Vírus - O anti-herói");
 		frame.add(this);
 		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
+//		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.pack();

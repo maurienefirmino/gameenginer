@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 
 import com.juniorstudio.main.Game;
 import com.juniorstudio.world.Camera;
+import com.juniorstudio.world.World;
 
 
 public class Player extends Entity{
@@ -22,20 +23,40 @@ public class Player extends Entity{
 		this.changeSprite();
 		
 		if(up) {
-			y-=speed;
-			Camera.y-=speed;
+			if(World.isFree(x,y-speed)) {
+				y-=speed;
+				Camera.y-=speed;
+			}
+			
 		}else if(down) {
-			y+=speed;
-			Camera.y+=speed;
+			if(World.isFree(x,y+speed+Game.bits)) {
+				y+=speed;
+				Camera.y+=speed;
+			}
 		}
 		
 		if(left) {
-			x-=speed;
-			Camera.x-=speed;
+			if(World.isFree(x-speed,y)) {
+				if(World.isFree(x-speed,y+13)) {
+					x-=speed;
+					Camera.x-=speed;
+				}
+			}
+			
 		}else if(right) {
-			x+=speed;
-			Camera.x+=speed;
+			if(World.isFree(x+speed+Game.bits,y)) {
+				if(World.isFree(x+speed+Game.bits,y+13)) {
+					x+=speed;
+					Camera.x+=speed;
+				}
+			}
+			
 		}
+		
+		
+//		Movimentando Câmera
+//		Camera.x = Camera.clamp(this.getX() - (Game.WIDTH/2) + (6*Game.bits), 0, (World.w*Game.bits) - Game.WIDTH);
+//		Camera.y = Camera.clamp(this.getY() - (Game.HEIGHT/2) + (6*Game.bits), 0, (World.h*Game.bits)- Game.HEIGHT);
 	}
 	
 	public void changeSprite() {
